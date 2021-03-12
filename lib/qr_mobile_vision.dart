@@ -41,6 +41,7 @@ class QrMobileVision {
 
   //Set target size before starting
   static Future<PreviewDetails> start({
+    @required bool useFrontCamera,
     @required int width,
     @required int height,
     @required QRCodeHandler qrCodeHandler,
@@ -55,6 +56,7 @@ class QrMobileVision {
 
     channelReader.setQrCodeHandler(qrCodeHandler);
     var details = await _channel.invokeMethod('start', {
+      'useFrontCamera': useFrontCamera,
       'targetWidth': width,
       'targetHeight': height,
       'heartbeatTimeout': 0,

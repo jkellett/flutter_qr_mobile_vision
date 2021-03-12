@@ -158,6 +158,7 @@ public class QrMobileVisionPlugin implements MethodCallHandler, QrReaderCallback
                     result.error("ALREADY_RUNNING", "Start cannot be called when already running", "");
                 } else {
                     lastHeartbeatTimeout = methodCall.argument("heartbeatTimeout");
+                    Boolean useFrontCamera = methodCall.argument("useFrontCamera");
                     Integer targetWidth = methodCall.argument("targetWidth");
                     Integer targetHeight = methodCall.argument("targetHeight");
                     List<String> formatStrings = methodCall.argument("formats");
@@ -176,7 +177,8 @@ public class QrMobileVisionPlugin implements MethodCallHandler, QrReaderCallback
                     readingInstance = new ReadingInstance(reader, textureEntry, result);
                     try {
                         reader.start(
-                            lastHeartbeatTimeout == null ? 0 : lastHeartbeatTimeout
+                            lastHeartbeatTimeout == null ? 0 : lastHeartbeatTimeout,
+                            useFrontCamera == null ? false : useFrontCamera
                         );
                     } catch (IOException e) {
                         e.printStackTrace();
