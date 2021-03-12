@@ -59,16 +59,16 @@ class QrCameraState extends State<QrCamera> with WidgetsBindingObserver {
   }
 
   @override
-  void didUpdateWidget(QrCamera oldWidget) {
-    print("qr_camera_dart didUpdateWidget");
-    if (oldWidget.useFrontCamera != widget.useFrontCamera) {
-      QrMobileVision.stop();
-      setState(() {
-        _asyncInitOnce = null;
-      });
-    }
-    super.didUpdateWidget(oldWidget);
-  }
+  // void didUpdateWidget(QrCamera oldWidget) {
+  //   print("qr_camera_dart didUpdateWidget");
+  //   if (oldWidget.useFrontCamera != widget.useFrontCamera) {
+  //     QrMobileVision.stop();
+  //     setState(() {
+  //       _asyncInitOnce = null;
+  //     });
+  //   }
+  //   super.didUpdateWidget(oldWidget);
+  // }
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
