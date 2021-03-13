@@ -61,7 +61,7 @@ public class SwiftQrMobileVisionPlugin: NSObject, FlutterPlugin {
       
       guard let targetWidth = argReader.int(key: "targetWidth"),
             let targetHeight = argReader.int(key: "targetHeight"),
-            let useFrontCamera = argReader.bool(key: "useFrontCamera")
+            let useFrontCamera = argReader.bool(key: "useFrontCamera"),
             let formatStrings = argReader.stringArray(key: "formats") else {
           result(FlutterError(code: "INVALID_ARGUMENT", message: "Missing a required argument", details: "Expecting targetWidth, targetHeight, formats, and optionally heartbeatTimeout"))
           return
